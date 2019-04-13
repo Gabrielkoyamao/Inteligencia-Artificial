@@ -7,7 +7,7 @@ plt.ylabel('Emocional')
 plt.title('Sistema Vocacional')
 plt.plot([10], [15], 'ro')
 #          y   x   y   x
-plt.plot([20, 20, 50, 20])
+# plt.plot([20, 20, 50, 20])
 
 plt.axis([0,50,0,100])
 plt.show()
