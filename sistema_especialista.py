@@ -194,7 +194,10 @@ class vocacaoMachine(KnowledgeEngine):
 
     # tipos de livros 
     @Rule(
-        Livros(fato=True)
+        AND (
+            Livros(fato=True),
+            NOT(Dados(dados=W()))
+        )
     )
     def ask_type(self):
         
@@ -222,7 +225,7 @@ class vocacaoMachine(KnowledgeEngine):
 
     @Rule(
         AND(
-            NOT(Dados(calculos=W())),
+            NOT(Dados(dados=W())),
             Livros(fato=False)
         )
     )
@@ -239,3 +242,57 @@ class vocacaoMachine(KnowledgeEngine):
 engine = vocacaoMachine()
 engine.reset() 
 engine.run() 
+
+
+
+
+# SE gosta de ler
+# ENTÃO x = 2 e y = 1
+# SENÃO x = 6 e y = 2
+
+# SE sou criativo
+# ENTÃO x = 3 e y = 2
+# SENÃO x = 7 e y = 3
+
+
+# SE gosto de escrever
+# ENTÃO x = 3 e y = 3
+# SENÃO x = 8 e y = 4
+
+
+# SE sou questionador
+# ENTÃO x = 3 e y = 3
+# SENÃO x = 7 e y = 3
+
+
+# SE gosto de cálculo
+# ENTÃO x = 9 e y = 1
+# SENÃO x = 1 e y = 1
+
+# SE sou prático
+# ENTÃO x = 7 e y = 3
+# SENÃO x = 3 e y = 2
+
+# SE gosto de Tecnologia
+# ENTÃO x = 7 e y = 3
+# SENÃO x = 3 e y = 2
+
+# SE tenho raciocineo logico
+# ENTÃO x = 10 e y = 0
+# SENÃO x = 0 e y = 2
+
+# SE gosto de animais
+# ENTÃO x = 3 e y = 7
+# SENÃO x = 3 e y = 3
+
+# SE gosto de veterinario ou medicina
+# ENTÃO x = 3 e y = 7
+# SENÃO x = 3 e y = 3
+
+# SE gosto do meio ambiente
+# ENTÃO x = 2 e y = 8
+# SENÃO x = 3 e y = 3
+
+# SE me preocupo com as pessoas
+# ENTÃO x = 3 e y = 7
+# SENÃO x = 3 e y = 3
